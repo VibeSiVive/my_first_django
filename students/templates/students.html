@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+    {% load static %}
+    {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Document
+        </title>
+
+        <script src="{% static 'tailwind.min.js' %}"></script>
+    </head>
+
+    
+        <div class="px-16">
+            <form id="student-form" onsubmit="addStudent(); return false;" class="">
+                <div>
+                    <label for="name" class="text-lg">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full" 
+                    />
+                </div>
+
+                <div class="mt-4">
+                    <label for="gender" class="text-lg">Gender</label>
+                    <select 
+                        id="gender" 
+                        name="gender" 
+                        class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"
+                    >
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+
+                <div class="mt-4">
+                    <label class="text-lg">Course</label>
+                    <div class="flex gap-16 mt-2">
+                        <div>
+                            <div>
+                                <input 
+                                    type="radio" 
+                                    id="bs-cs" 
+                                    name="course" 
+                                    value="BS-CS" 
+                                    class="w-4 h-4"
+                                /> 
+                                <label 
+                                    for="bs-cs" 
+                                    class="text-lg"
+                                >
+                                    BS CS
+                                </label>
+                            </div>
+                            <div>
+                                <input 
+                                    type="radio" 
+                                    id="bs-ds" 
+                                    name="course" 
+                                    value="BS-DS" 
+                                    class="w-4 h-4"
+                                /> 
+                                <label 
+                                    for="bs-ds" 
+                                    class="text-lg"
+                                >
+                                    BS DS
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <input type="radio" id="bs-is" name="course" value="BS-IS" class="w-4 h-4"/> 
+                                <label for="bs-is" class="text-lg">BS IS</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="bs-it" name="course" value="BS-IT" class="w-4 h-4"/> 
+                                <label for="bs-it" class="text-lg">BS IT</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-center">
+                        <input 
+                            type="submit" 
+                            value="Add Student" 
+                            class="bg-green-600 px-4 py-2 text-white rounded-md cursor-pointer hover:bg-green-700 hover:shadow-lg"
+                        />
+                    </div>
+                </div>
+            </form>
+            <input type="text" 
+            class="mt-2 border-2 rounded-md bg-gray-100 p-2 block w-full"
+            placeholder="Search something..."
+            />
+
+            <table id="student-table" class="mt-4 w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3">Name</th>
+                        <th class="px-6 py-3">Gender</th>
+                        <th class="px-6 py-3">Course</th>
+                        <th class="px-6 py-3">Action</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot></tfoot>
+            </table>
+        </div>
+
+        <script src="{% static 'scripts.js' %}"></script>
+    {% endblock %}
